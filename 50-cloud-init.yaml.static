@@ -1,0 +1,19 @@
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+#
+# To apply this configuration, copy to /etc/netplan/50-cloud-init.yaml & use
+# sudo netplan apply
+#
+network:
+    ethernets:
+        ens160:
+            addresses:
+              - 192.168.1.200/24
+            gateway4: 192.168.1.1
+            nameservers:
+              search: [qhome.com, local]
+              addresses: [192.168.1.5]
+    version: 2
