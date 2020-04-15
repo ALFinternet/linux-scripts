@@ -2,5 +2,5 @@
 # sudo hostnamectl set-hostname <hostname>
 
 # don't forget to check these locations change if needed:
-# /etc/hosts/
-# /etc/hostname/
+# /etc/hosts
+# /etc/hostname
