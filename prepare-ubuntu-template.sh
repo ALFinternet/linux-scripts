@@ -76,6 +76,13 @@ sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.c
 truncate -s0 /etc/hostname
 hostnamectl set-hostname localhost
 
+# reset machine-id by deleting the file & then creating a blank place holder
+# files: /etc/machine-id & /var/lib/dbus/machine-id
+# ALFinternet 2020-04-16
+sudo rm -f /etc/machine-id
+sudo touch /etc/machine-id
+
+
 #cleanup apt
 apt clean
 
