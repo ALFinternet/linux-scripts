@@ -34,3 +34,5 @@ usermod -aG docker $USER
 
 
 systemctl enable docker
+
+echo don't forget to allow remote connections via sudo systemctl edit docker.service
