@@ -33,4 +33,5 @@ apt-get install docker-ce docker-ce-cli containerd.io -y
 usermod -aG docker $USER
 
 #systemctl enable docker
-#echo don't forget to allow remote connections via sudo systemctl edit docker.service
+#all remote connections
+sudo sed -i 's/containerd.sock/containerd.sock -H=tcp:\/\/0.0.0.0:2375/g' /lib/systemd/system/docker.service
