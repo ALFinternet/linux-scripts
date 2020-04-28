@@ -11,4 +11,5 @@ network:
     ethernets:
         ens160:
             dhcp4: true
+            dhcp-identifier: mac
     version: 2
