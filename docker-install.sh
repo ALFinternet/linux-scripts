@@ -30,7 +30,7 @@ apt update -y
 
 apt-get install docker-ce docker-ce-cli containerd.io -y
 
-usermod -aG docker $USER
+usermod -aG docker alf
 
 #systemctl enable docker
 #all remote connections
