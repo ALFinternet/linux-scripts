@@ -24,9 +24,9 @@ apt upgrade -y
 
 #install packages
 apt install -y open-vm-tools
-apt install haveged
-apt install ntp
-apt install nfs-common
+apt install -y haveged
+apt install -y ntp
+apt install -y nfs-common
 
 #setup a new user
 #sudo adduser netadmin
