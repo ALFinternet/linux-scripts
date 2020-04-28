@@ -24,6 +24,17 @@ apt upgrade -y
 
 #install packages
 apt install -y open-vm-tools
+apt install haveged
+apt install ntp
+apt install nfs-common
+
+#setup a new user
+#sudo adduser netadmin
+#sudo usermod -aG sudo netadmin
+
+#set timezone
+timedatectl set-timezone America/Los_Angeles
+
 
 #Stop services for cleanup
 service rsyslog stop
