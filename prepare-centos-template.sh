@@ -4,8 +4,10 @@
 # might need to install this manually to download this file from github:
 yum install -y git
 
-yum install -y open-vm-tools epel-release nano haveged nfs-utils yum-utils
-yum install -y bind-utils whois wget mlocate vim-enhanced cups net-snmp net-snmp-utils net-tools
+yum install -y open-vm-tools epel-release nano nfs-utils yum-utils
+yum install -y bind-utils wget mlocate vim-enhanced cups net-snmp net-snmp-utils net-tools
+
+yum install -y haveged
 
 systemctl disable firewalld
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
