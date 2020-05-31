@@ -5,7 +5,7 @@ yum install -y open-vm-tools epel-release nano haveged nfs-utils yum-utils
 yum install -y bind-utils whois wget mlocate vim-enhanced cups net-snmp net-snmp-utils net-tools
 
 systemctl disable firewalld
-sed -i 's/SELINUX=enabled/SELINUX=disabled/g' /etc/selinux/config
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 # http://everything-virtual.com/2016/05/06/creating-a-centos-7-2-vmware-gold-template/
 
