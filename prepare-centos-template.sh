@@ -55,4 +55,4 @@ unset HISTFILE
 
 # run these 2 commands afterwards:
 # history –c
-# sys-unconfig
+# sys-unconfig <-- this doesn't even work in CentOS8
