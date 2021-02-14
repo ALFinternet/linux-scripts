@@ -90,8 +90,12 @@ hostnamectl set-hostname localhost
 # reset machine-id by deleting the file & then creating a blank place holder
 # files: /etc/machine-id & /var/lib/dbus/machine-id
 # ALFinternet 2020-04-16
-sudo rm -f /etc/machine-id
-sudo touch /etc/machine-id
+# sudo rm -f /etc/machine-id
+# sudo touch /etc/machine-id
+rm /etc/machine-id
+rm /var/lib/dbus/machine-id
+truncate -s 0 /var/lib/dbus/machine-id
+ln -s /var/lib/dbus/machine-id /etc/machine-id
 
 
 #cleanup apt
@@ -103,7 +107,7 @@ sudo sed -ri '/\sswap\s/s/^#?/#/' /etc/fstab
 
 # set dhcp to use mac - this is a little bit of a hack but I need this to be placed under the active nic settings
 # also look in /etc/netplan for other config files
-sed -i 's/optional: true/dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
+#sed -i 's/optional: true/dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
 
 # cleans out all of the cloud-init cache / logs - this is mainly cleaning out networking info
 sudo cloud-init clean --logs
