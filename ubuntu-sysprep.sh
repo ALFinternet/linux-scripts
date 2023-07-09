@@ -56,7 +56,7 @@ apt update -y
 apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
 
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ubuntu
 sudo usermod -aG docker netadmin
 
 # create my bridge network
