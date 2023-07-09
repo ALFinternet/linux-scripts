@@ -2,7 +2,7 @@
 Scripts for Linux SETUP
 
 ## How to Use
-on Ubuntu:
+on Ubuntu, switch to root, create 2nd user, set password:
 
 ```bash
 sudo su -
@@ -30,6 +30,4 @@ NEWUSER=<newuser>
 usermod -l $NEWUSER $OLDUSER
 groupmod -n $NEWUSER $OLDUSER
 usermod -d /home/$NEWUSER -m $NEWUSER
-mv /home/$OLDUSER/* /home/$NEWUSER
-mv /home/$OLDUSER/.* /home/$NEWUSER
 ```
