@@ -2,6 +2,8 @@
 ######################################################
 #### WARNING PIPING TO BASH IS STUPID: DO NOT USE THIS
 ######################################################
+# cheat & run this: bash <(curl -s https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/prepare-ubuntu-template.sh)
+
 # modified from: jcppkkk/prepare-ubuntu-template.sh
 # TESTED ON UBUNTU 18.04 LTS
 
@@ -24,9 +26,11 @@ apt upgrade -y
 
 #install packages
 apt install -y open-vm-tools
-apt install -y haveged
-apt install -y ntp
-apt install -y nfs-common
+apt install -y qemu-guest-agent
+apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full
+
+
 
 #setup a new user
 #sudo adduser netadmin
@@ -111,6 +115,10 @@ sudo sed -ri '/\sswap\s/s/^#?/#/' /etc/fstab
 
 # cleans out all of the cloud-init cache / logs - this is mainly cleaning out networking info
 sudo cloud-init clean --logs
+
+# disable cloud-init all together
+# ALFinternet 2020-04-16
+sudo touch /etc/cloud/cloud-init.disabled
 
 #cleanup shell history
 cat /dev/null > ~/.bash_history && history -c

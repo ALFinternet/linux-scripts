@@ -2,4 +2,7 @@
 Scripts for Linux SETUP
 
 ## How to Use
-copy the repository to the Linux box: git clone https://github.com/ALFinternet/linux-scripts.git
+on Ubuntu:
+```bash
+sudo bash <(curl -s https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/prepare-ubuntu-template.sh)
+```
