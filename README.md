@@ -36,3 +36,20 @@ usermod -l $NEWUSER $OLDUSER
 groupmod -n $NEWUSER $OLDUSER
 usermod -d /home/$NEWUSER -m $NEWUSER
 ```
+
+### Add Storage
+
+See current storage:
+```bash
+sudo lsblk
+```
+
+Expand partition
+```bash
+sudo growpart /dev/sda 2
+```
+
+Resize root to fill space
+```bash
+sudo xfs_growfs /
+```
