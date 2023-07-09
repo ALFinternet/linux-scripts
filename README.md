@@ -10,6 +10,5 @@ sudo su -
 then
 
 ```bash
-sudo su -
 bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/prepare-ubuntu-template.sh)
 ```
