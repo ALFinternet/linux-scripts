@@ -58,8 +58,10 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
 # end DOCKER
+
+# add netadmin user password is password
+useradd -m netadmin -G sudo,docker -p "$6$MislkK/WQxaRlU8f$1gSsn.lASCyTicCp1FUhsglvm2DI0J60.i43fwt5E6d2ivsBAgp0aAtq.QUnUNeaXBkyAYD1Lo1mrNGI.KA6w/"
 
 
 #Stop services for cleanup
