@@ -114,11 +114,11 @@ sudo sed -ri '/\sswap\s/s/^#?/#/' /etc/fstab
 #sed -i 's/optional: true/dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
 
 # cleans out all of the cloud-init cache / logs - this is mainly cleaning out networking info
-sudo cloud-init clean --logs
+# sudo cloud-init clean --logs
 
 # disable cloud-init all together
 # ALFinternet 2020-04-16
-sudo touch /etc/cloud/cloud-init.disabled
+#sudo touch /etc/cloud/cloud-init.disabled
 
 #cleanup shell history
 cat /dev/null > ~/.bash_history && history -c
