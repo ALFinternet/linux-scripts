@@ -58,6 +58,10 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo usermod -aG docker netadmin
+
+# create my bridge network
+docker network create --driver=bridge --subnet=10.42.0.0/24 --gateway=10.42.0.1 dbr0
+
 # end DOCKER
 #############################################
 
