@@ -123,13 +123,13 @@ chmod -x /etc/update-motd.d/10-help-text
 
 
 # run neofetch on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
-cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
-#!/bin/bash
-printf "\n"
-neofetch
-
-EOL
-chmod +x /etc/profile.d/motd.sh
+#cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
+##!/bin/bash
+#printf "\n"
+#neofetch
+#
+#EOL
+#chmod +x /etc/profile.d/motd.sh
 
 # reset machine-id by deleting the file & then creating a blank place holder
 # files: /etc/machine-id & /var/lib/dbus/machine-id
