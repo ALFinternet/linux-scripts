@@ -74,9 +74,9 @@ cat << 'EOL' | sudo tee /etc/rc.local
 # By default this script does nothing.
 
 # dynamically create hostname (optional)
-if hostname | grep localhost; then
-    hostnamectl set-hostname "$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')"
-fi
+#if hostname | grep localhost; then
+    #hostnamectl set-hostname "$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')"
+#fi
 
 test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
 exit 0
@@ -89,7 +89,7 @@ chmod +x /etc/rc.local
 # prevent cloudconfig from preserving the original hostname
 sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
 truncate -s0 /etc/hostname
-hostnamectl set-hostname localhost
+hostnamectl set-hostname CHANGEME
 
 # disable MOTD & login spam
 sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
