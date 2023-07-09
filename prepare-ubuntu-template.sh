@@ -118,7 +118,7 @@ sudo sed -ri '/\sswap\s/s/^#?/#/' /etc/fstab
 
 # disable cloud-init all together
 # ALFinternet 2020-04-16
-#sudo touch /etc/cloud/cloud-init.disabled
+sudo touch /etc/cloud/cloud-init.disabled
 
 #cleanup shell history
 cat /dev/null > ~/.bash_history && history -c
