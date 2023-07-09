@@ -1,0 +1,9 @@
+# make all networks use DHCP & use the MAC address as the DHCP identifier
+network:
+  ethernets:
+    eth0:
+      match:
+        name: en*
+      dhcp4: true
+      dhcp-identifier: mac
+  version: 2

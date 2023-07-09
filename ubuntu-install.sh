@@ -2,7 +2,7 @@
 ######################################################
 #### WARNING PIPING TO BASH IS STUPID: DO NOT USE THIS
 ######################################################
-# cheat & run this: bash <(curl -s https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/prepare-ubuntu-template.sh)
+# cheat & run this as sudo: bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-install.sh)
 
 # modified from: jcppkkk/prepare-ubuntu-template.sh
 # TESTED ON UBUNTU 18.04 LTS
