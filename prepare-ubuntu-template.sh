@@ -28,7 +28,7 @@ apt upgrade -y
 apt install -y open-vm-tools
 apt install -y qemu-guest-agent
 apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full neofetch
 
 
 
@@ -91,6 +91,20 @@ sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.c
 truncate -s0 /etc/hostname
 hostnamectl set-hostname localhost
 
+# disable MOTD & login spam
+sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
+chmod -x /etc/update-motd.d/10-help-text
+
+
+# run neofetch on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
+cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
+#!/bin/bash
+printf "\n"
+neofetch
+
+EOL
+chmod +x /etc/profile.d/motd.sh
+
 # reset machine-id by deleting the file & then creating a blank place holder
 # files: /etc/machine-id & /var/lib/dbus/machine-id
 # ALFinternet 2020-04-16
@@ -112,6 +126,7 @@ sudo sed -ri '/\sswap\s/s/^#?/#/' /etc/fstab
 # set dhcp to use mac - this is a little bit of a hack but I need this to be placed under the active nic settings
 # also look in /etc/netplan for other config files
 #sed -i 's/optional: true/dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
+sed -i 's/dhcp4: true/dhcp4: true\n      dhcp-identifier: mac/g' /etc/netplan/00-installer-config.yaml
 
 # cleans out all of the cloud-init cache / logs - this is mainly cleaning out networking info
 # sudo cloud-init clean --logs
