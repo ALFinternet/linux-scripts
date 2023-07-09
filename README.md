@@ -2,14 +2,17 @@
 Scripts for Linux SETUP
 
 ## How to Use
-on Ubuntu, switch to root, create 2nd user, set password:
+on Ubuntu, switch to root, preinstall apps, create 2nd user, set password:
 
 ```bash
 sudo su -
+bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-install.sh)
 ```
-then
+
+then once ready to 'prep':
 
 ```bash
+sudo su -
 bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/prepare-ubuntu-template.sh)
 ```
 
