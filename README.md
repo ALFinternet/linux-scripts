@@ -23,8 +23,8 @@ then once ready to 'prep':
 bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-sysprep.sh)
 ```
 
-
-Logout & login as a different user (netadmin)
+### Rename ubuntu user to new user
+Logout & login as a different user (netadmin), switch to root
 ```bash
 sudo su -
 ```
