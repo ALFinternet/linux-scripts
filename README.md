@@ -20,7 +20,7 @@ passwd netadmin
 then once ready to 'prep':
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/prepare-ubuntu-template.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-sysprep.sh)
 ```
 
 
