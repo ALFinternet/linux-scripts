@@ -34,6 +34,10 @@ apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zi
 #set timezone
 timedatectl set-timezone America/Los_Angeles
 
+# add netadmin user,, use sudo passwd netadmin to set password
+useradd -m netadmin -G sudo
+usermod --shell /bin/bash netadmin
+
 #############################################
 # install docker because we always use it
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -53,13 +57,13 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
+sudo usermod -aG docker netadmin
+
+# create my bridge network
+docker network create --driver=bridge --subnet=10.42.0.0/24 --gateway=10.42.0.1 dbr0
+
 # end DOCKER
 #############################################
-
-
-# add netadmin user, no home directory, use sudo passwd netadmin to set password
-useradd -m netadmin -G sudo,docker
-usermod --shell /bin/bash netadmin
 
 
 #Stop services for cleanup
