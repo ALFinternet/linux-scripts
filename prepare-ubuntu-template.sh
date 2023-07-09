@@ -31,15 +31,10 @@ apt install -y apt-transport-https ca-certificates curl gnupg-agent software-pro
 apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full neofetch
 
 
-
-#setup a new user
-#sudo adduser netadmin
-#sudo usermod -aG sudo netadmin
-
 #set timezone
 timedatectl set-timezone America/Los_Angeles
 
-
+#############################################
 # install docker because we always use it
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
@@ -59,9 +54,12 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 # end DOCKER
+#############################################
 
-# add netadmin user, no home directory, use sudo passwd Noor to set password
+
+# add netadmin user, no home directory, use sudo passwd netadmin to set password
 useradd -m netadmin -G sudo,docker
+usermod --shell /bin/bash netadmin
 
 
 #Stop services for cleanup

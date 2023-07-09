@@ -14,14 +14,19 @@ bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/mast
 ```
 
 ### Rename User
-Make sure other user isn't logged in (reboot?) then login as a different user (netadmin)
+Give netadmin a password:
+```bash
+sudo passwd netadmin
+```
+
+Logout & login as a different user (netadmin)
 ```bash
 sudo su -
 ```
 then
 ```bash
 OLDUSER=ubuntu
-NEWUSER=
+NEWUSER=<newuser>
 usermod -l $NEWUSER $OLDUSER
 groupmod -n $NEWUSER $OLDUSER
 usermod -d /home/$NEWUSER -m $NEWUSER
