@@ -2,25 +2,27 @@
 Scripts for Linux SETUP
 
 ## How to Use
-on Ubuntu, switch to root, preinstall apps, create 2nd user, set password:
-
+on Ubuntu, switch to root:
 ```bash
 sudo su -
+```
+
+Run pre-installs of apps & configs, create user netadmin
+```bash
 bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-install.sh)
+```
+
+Give netadmin a password:
+```bash
+passwd netadmin
 ```
 
 then once ready to 'prep':
 
 ```bash
-sudo su -
 bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/prepare-ubuntu-template.sh)
 ```
 
-### Rename User
-Give netadmin a password:
-```bash
-sudo passwd netadmin
-```
 
 Logout & login as a different user (netadmin)
 ```bash
