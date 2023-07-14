@@ -37,7 +37,7 @@ groupmod -n $NEWUSER $OLDUSER
 usermod -d /home/$NEWUSER -m $NEWUSER
 ```
 
-### Add Storage
+### Expand Storage
 
 See current storage:
 ```bash
@@ -53,6 +53,40 @@ Resize root to fill space
 ```bash
 sudo xfs_growfs /
 ```
+
+### Mount Storage
+
+See current storage, find new drive (/dev/sd{x,y,z})
+```bash
+sudo lsblk -f
+```
+
+Make new partition
+```bash
+sudo gdisk /dev/sdb
+```
+Then:
+n (new)
+1 (partition #)
+<enter> (first sector, start of disk by default)
+<enter> (last sector, end of disk by default)
+<enter> (linux file system default)
+w (write & exit)
+
+Find new parition GGUID (/dev/sd{x,y,z}[1-9])
+```bash
+sudo lsblk -f
+```
+
+format partition, mount on folder
+```bash
+sudo mkfs.xfs /dev/sdb1
+sudo mkdir /mnt/sdb1
+echo /dev/disk/by-uuid/<UUID FROM lsblk -f> /mnt/sdb1 xfs defaults 0 1 | sudo tee -a /etc/fstab
+sudo mount -a
+```
+
+
 
 ### NFS Mount for Docker
 ```bash
