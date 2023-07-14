@@ -106,5 +106,6 @@ ln -s /mnt/homenas-docker-nfs-ssd/ ~/appdata
 
 ### Make shortcut
 ```bash
-ln -s /mnt/<path>/ ~/<path>
+ln -s /mnt/<path>/ ~/<end_path>
+sudo chown -R $USER:$USER ~/<end_path>
 ```
