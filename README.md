@@ -106,6 +106,6 @@ ln -s /mnt/homenas-docker-nfs-ssd/ ~/appdata
 
 ### Make shortcut
 ```bash
-ln -s /mnt/<path>/ ~/<end_path>
-sudo chown -R $USER:$USER ~/<end_path>
+ln -s /mnt/<path> ~/<end_path> # no trailing slashes
+sudo chown -R $USER:$USER ~/<end_path>/ # has trailing slash!
 ```
