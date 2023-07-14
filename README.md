@@ -103,3 +103,8 @@ sudo chown root:root -R /mnt/homenas-docker-nfs-ssd/
 sudo chmod +0776 -R /mnt/homenas-docker-nfs-ssd/
 ln -s /mnt/homenas-docker-nfs-ssd/ ~/appdata
 ```
+
+### Make shortcut
+```bash
+ln -s /mnt/<path>/ ~/<path>
+```
