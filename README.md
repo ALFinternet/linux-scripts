@@ -36,7 +36,7 @@ usermod -l $NEWUSER $OLDUSER
 groupmod -n $NEWUSER $OLDUSER
 usermod -d /home/$NEWUSER -m $NEWUSER
 ```
-
+## Storage
 ### Expand Storage
 
 See current storage:
@@ -67,11 +67,17 @@ sudo gdisk /dev/sdb
 ```
 Then:
 n (new)
+
 1 (partition #)
+
 <enter> (first sector, start of disk by default)
+
 <enter> (last sector, end of disk by default)
+
 <enter> (linux file system default)
+
 w (write & exit)
+
 
 Find new parition GGUID (/dev/sd{x,y,z}[1-9])
 ```bash
