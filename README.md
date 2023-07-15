@@ -109,3 +109,9 @@ ln -s /mnt/homenas-docker-nfs-ssd/ ~/appdata
 ln -s /mnt/<path> ~/<end_path> # no trailing slashes
 sudo chown -R $USER:$USER ~/<end_path>/ # has trailing slash!
 ```
+
+## Docker notes
+```bash
+docker network create --driver=macvlan --gateway=192.168.1.1 --subnet=192.168.1.0/24 -o parent=ens3 dmac0
+docker network create --driver=macvlan --gateway=192.168.1.1 --subnet=192.168.1.0/24 -o parent=ens160 dmac0
+```
