@@ -110,8 +110,18 @@ ln -s /mnt/<path> ~/<end_path> # no trailing slashes
 sudo chown -R $USER:$USER ~/<end_path>/ # has trailing slash!
 ```
 
-## Docker notes
+### Docker notes
 ```bash
 docker network create --driver=macvlan --gateway=192.168.1.1 --subnet=192.168.1.0/24 -o parent=ens3 dmac0
 docker network create --driver=macvlan --gateway=192.168.1.1 --subnet=192.168.1.0/24 -o parent=ens160 dmac0
 ```
+
+### Misc
+Thin provision freeup, try:
+```bash
+sudo fstrim -av
+```
+else:
+https://manpages.ubuntu.com/manpages/focal/en/man8/fstrim.8.html
+https://kb.vmware.com/s/article/2136514
+https://manpages.ubuntu.com/manpages/xenial/man8/zerofree.8.html
