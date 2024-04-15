@@ -28,7 +28,7 @@ apt upgrade -y
 apt install -y open-vm-tools
 apt install -y qemu-guest-agent
 apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full neofetch
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full
 
 
 #set timezone

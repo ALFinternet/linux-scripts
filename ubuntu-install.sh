@@ -28,7 +28,7 @@ apt upgrade -y
 apt install -y open-vm-tools
 apt install -y qemu-guest-agent
 apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full neofetch
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full
 
 
 #set timezone
@@ -72,7 +72,7 @@ chmod -x /etc/update-motd.d/10-help-text
 
 sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
 
-# run neofetch on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
+# run anything on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
 #cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
 ##!/bin/bash
 #printf "\n"
