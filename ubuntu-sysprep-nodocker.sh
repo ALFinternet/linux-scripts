@@ -125,7 +125,7 @@ sudo sed -ri '/\sswap\s/s/^#?/#/' /etc/fstab
 # also look in /etc/netplan for other config files
 #sed -i 's/optional: true/dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
 #sed -i 's/dhcp4: true/dhcp4: true\n      dhcp-identifier: mac/g' /etc/netplan/00-installer-config.yaml
-sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
+#sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
 
 # cleans out all of the cloud-init cache / logs - this is mainly cleaning out networking info
 # sudo cloud-init clean --logs

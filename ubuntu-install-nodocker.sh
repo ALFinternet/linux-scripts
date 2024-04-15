@@ -43,7 +43,7 @@ usermod --shell /bin/bash netadmin
 sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
 chmod -x /etc/update-motd.d/10-help-text
 
-sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
+#sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
 
 # run anything on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
 #cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
