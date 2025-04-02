@@ -24,11 +24,10 @@ set -v
 apt update -y
 apt upgrade -y
 
-#install packages
-apt install -y open-vm-tools
+#apt install -y open-vm-tools # for VMware Only
 apt install -y qemu-guest-agent
-apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full
+apt install -y apt-transport-https ca-certificates curl wget git gnupg-agent software-properties-common
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full neofetch
 
 
 #set timezone
@@ -57,6 +56,7 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 
 sudo groupadd docker
 sudo usermod -aG docker ubuntu
+sudo usermod -aG docker alf
 sudo usermod -aG docker netadmin
 
 # create my bridge network
@@ -70,7 +70,7 @@ docker network create --driver=bridge --subnet=10.42.0.0/24 --gateway=10.42.0.1 
 sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
 chmod -x /etc/update-motd.d/10-help-text
 
-sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
+#sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
 
 # run anything on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
 #cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
