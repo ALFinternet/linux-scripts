@@ -24,11 +24,10 @@ set -v
 apt update -y
 apt upgrade -y
 
-#install packages
-apt install -y open-vm-tools
-apt install -y qemu-guest-agent
 apt install -y apt-transport-https ca-certificates curl wget git gnupg-agent software-properties-common
 apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full neofetch ubuntu-drivers-common
+apt install -y open-vm-tools
+#apt install -y qemu-guest-agent
 
 
 #set timezone
@@ -43,13 +42,21 @@ usermod --shell /bin/bash netadmin
 sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
 chmod -x /etc/update-motd.d/10-help-text
 
+
+# set DHCP to use MAC address
 #sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
+sed -i 's/dhcp4: true/dhcp4: true\n      dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
 
 # run anything on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
-#cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
-##!/bin/bash
-#printf "\n"
-#neofetch
-#
-#EOL
-#chmod +x /etc/profile.d/motd.sh
+cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
+#!/bin/bash
+printf "\n"
+neofetch
+
+EOL
+chmod +x /etc/profile.d/motd.sh
+
+# disable cloud-init all together
+sudo touch /etc/cloud/cloud-init.disabled
+
+# end
