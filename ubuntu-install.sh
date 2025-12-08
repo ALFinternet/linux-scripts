@@ -42,6 +42,12 @@ usermod --shell /bin/bash netadmin
 sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
 chmod -x /etc/update-motd.d/10-help-text
 
+# disable ESM notifications since we'll never use/register
+# https://bugs.launchpad.net/ubuntu/+source/update-notifier/+bug/2015420
+# https://github.com/canonical/ubuntu-pro-client/issues/2458
+sudo touch /var/lib/update-notifier/hide-esm-in-motd
+sudo rm /var/lib/update-notifier/updates-available
+
 
 # set DHCP to use MAC address
 #sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
