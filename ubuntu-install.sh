@@ -1,7 +1,7 @@
 #!/bin/bash
-######################################################
-#### WARNING PIPING TO BASH IS STUPID: DO NOT USE THIS
-######################################################
+###########################################################
+#### WARNING PIPING TO BASH IS STUPID: DO NOT USE THIS ####
+###########################################################
 # cheat & run this as sudo: bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-install.sh)
 
 # modified from: jcppkkk/prepare-ubuntu-template.sh
