@@ -125,3 +125,19 @@ else:
 https://manpages.ubuntu.com/manpages/focal/en/man8/fstrim.8.html
 https://kb.vmware.com/s/article/2136514
 https://manpages.ubuntu.com/manpages/xenial/man8/zerofree.8.html
+
+
+### Disk notes
+```
+Identify Disk: Run lsblk to find your new disk (e.g., /dev/sdb).
+Start gdisk: Open the disk: sudo gdisk /dev/sdb.
+Create GPT: In gdisk, type o (to create a new empty GPT) and y (to confirm).
+Create Partition: Type n, accept defaults for partition number/start/end to use the whole disk, and set filesystem type (e.g., 8300 for Linux filesystem).
+Write & Exit: Type w and y to write changes. 
+Final Steps (Both Methods)
+Format: sudo mkfs.ext4 /dev/sdb1 (replace sdb1 with your new partition).
+Create Mount Point: sudo mkdir /mnt/newdisk (or similar).
+Mount: sudo mount /dev/sdb1 /mnt/newdisk.
+Auto-mount (Optional): Add a line to /etc/fstab for automatic mounting after reboot (use blkid to get the UUID). 
+Note: GPT is ideal for disks > 2TB and works well with UEFI systems; ensure your system boots in UEFI mode for best results. 
+```
