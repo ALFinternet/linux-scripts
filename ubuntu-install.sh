@@ -25,7 +25,7 @@ apt update -y
 apt upgrade -y
 
 apt install -y apt-transport-https ca-certificates curl wget git gnupg-agent software-properties-common
-apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full neofetch ubuntu-drivers-common
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full fastfetch ubuntu-drivers-common
 apt install -y open-vm-tools
 #apt install -y qemu-guest-agent
 
@@ -57,7 +57,7 @@ sed -i 's/dhcp4: true/dhcp4: true\n      dhcp-identifier: mac/g' /etc/netplan/50
 cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
 #!/bin/bash
 printf "\n"
-neofetch
+fastfetch
 
 EOL
 chmod +x /etc/profile.d/motd.sh
