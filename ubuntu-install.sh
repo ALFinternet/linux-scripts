@@ -25,10 +25,12 @@ apt update -y
 apt upgrade -y
 
 apt install -y apt-transport-https ca-certificates curl wget git gnupg-agent software-properties-common
-apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full fastfetch ubuntu-drivers-common
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux p7zip-full ubuntu-drivers-common
 apt install -y open-vm-tools
 #apt install -y qemu-guest-agent
 
+wget https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.2/fastfetch-linux-amd64.deb
+apt install -y fastfetch-linux-amd64.deb
 
 #set timezone
 timedatectl set-timezone America/Los_Angeles
