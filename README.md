@@ -2,6 +2,14 @@
 Scripts for Linux SETUP
 
 ## How to Use
+Quick update commands:
+```bash
+sudo apt update && \
+sudo apt upgrade -y && \
+sudo apt autoremove -y && \
+sudo apt clean
+```
+
 on Ubuntu, switch to root:
 ```bash
 sudo su -
