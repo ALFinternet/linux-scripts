@@ -17,7 +17,7 @@ sudo su -
 
 Run pre-installs of apps & configs, create user netadmin
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu26-install.sh)
 ```
 
 Give netadmin a password:

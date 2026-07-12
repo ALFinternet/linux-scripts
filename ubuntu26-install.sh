@@ -1,0 +1,70 @@
+#!/bin/bash
+###########################################################
+#### WARNING PIPING TO BASH IS STUPID: DO NOT USE THIS ####
+###########################################################
+# cheat & run this as sudo: bash <(curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/ubuntu-install.sh)
+
+# modified from: jcppkkk/prepare-ubuntu-template.sh
+# TESTED ON UBUNTU 18.04 LTS
+
+# SETUP & RUN
+# curl -sL https://raw.githubusercontent.com/jimangel/ubuntu-18.04-scripts/master/prepare-ubuntu-18.04-template.sh | sudo -E bash -
+
+# forked from https://github.com/jimangel/ubuntu-18.04-scripts/blob/master/prepare-ubuntu-18.04-template.sh
+# - https://jimangel.io/post/create-a-vm-template-ubuntu-18.04/
+
+if [ `id -u` -ne 0 ]; then
+	echo Need sudo
+	exit 1
+fi
+
+set -v
+
+#update apt-cache
+apt update -y
+apt upgrade -y
+
+apt install -y apt-transport-https ca-certificates curl wget git gnupg-agent software-properties-common
+apt install -y haveged ntp nfs-common net-tools cifs-utils htop parted tmux 7zip 7zip-rar ubuntu-drivers-common
+apt install -y open-vm-tools
+#apt install -y qemu-guest-agent
+
+wget https://github.com/fastfetch-cli/fastfetch/releases/download/2.65.2/fastfetch-linux-amd64.deb
+apt install -y fastfetch-linux-amd64.deb
+
+#set timezone
+timedatectl set-timezone America/Los_Angeles
+
+# add netadmin user,, use sudo passwd netadmin to set password
+useradd -m netadmin -G sudo
+usermod --shell /bin/bash netadmin
+
+
+# disable MOTD & login spam
+sed -i 's/ENABLED=1/ENABLED=0/g' /etc/default/motd-news
+chmod -x /etc/update-motd.d/10-help-text
+
+# disable ESM notifications since we'll never use/register
+# https://bugs.launchpad.net/ubuntu/+source/update-notifier/+bug/2015420
+# https://github.com/canonical/ubuntu-pro-client/issues/2458
+sudo touch /var/lib/update-notifier/hide-esm-in-motd
+sudo rm /var/lib/update-notifier/updates-available
+
+
+# set DHCP to use MAC address
+#sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
+sed -i 's/dhcp4: true/dhcp4: true\n      dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
+
+# run anything on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
+cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
+#!/bin/bash
+printf "\n"
+fastfetch
+
+EOL
+chmod +x /etc/profile.d/motd.sh
+
+# disable cloud-init all together
+sudo touch /etc/cloud/cloud-init.disabled
+
+# end
