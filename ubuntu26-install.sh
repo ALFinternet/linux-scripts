@@ -53,7 +53,7 @@ sudo rm /var/lib/update-notifier/updates-available
 
 # set DHCP to use MAC address
 #sudo curl -Ls https://raw.githubusercontent.com/ALFinternet/linux-scripts/master/00-installer-config.yaml -o /etc/netplan/00-installer-config.yaml
-sed -i 's/dhcp4: true/dhcp4: true\n      dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
+#sed -i 's/dhcp4: true/dhcp4: true\n      dhcp-identifier: mac/g' /etc/netplan/50-cloud-init.yaml
 
 # run anything on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
 cat << 'EOL' | sudo tee /etc/profile.d/motd.sh
