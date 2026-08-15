@@ -32,7 +32,7 @@ timedatectl set-timezone America/Los_Angeles
 useradd -s /bin/bash -G wheel netadmin
 
 
-# run anything on login https://gist.github.com/linuswillner/f8c15385e8a88017a70bdc3f18a688a2
+# run anything on login
 cat << 'EOL' | sudo tee /etc/profile.d/99-fastfetch.sh
 #!/bin/bash
 printf "\n"
