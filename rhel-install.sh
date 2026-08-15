@@ -20,7 +20,7 @@ dnf install epel-release -y
 
 dnf check-update & dnf upgrade -y
 
-dnf install -y curl wget git haveged chrony nfs-utils net-tools cifs-utils
+dnf install -y curl wget git haveged chrony net-tools bind-utils nfs-utils cifs-utils
 dnf install -y nano htop parted tmux p7zip p7zip-plugins fastfetch
 dnf install -y open-vm-tools
 #dnf install -y qemu-guest-agent
