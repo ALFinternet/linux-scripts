@@ -41,4 +41,4 @@ fastfetch
 EOL
 chmod +x /etc/profile.d/99-fastfetch.sh
 
-# set IP via nmtui or nmcli
+# set IP via nmtui or nmcliexi
